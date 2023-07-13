@@ -1,0 +1,19 @@
+<div
+  class="flex h-10 w-10 items-center justify-center rounded-full border-2 font-semibold"
+  [ngClass]="{
+    'border-blue-500 bg-blue-500': status === 'complete',
+    'border-blue-500 bg-white text-blue-500': status === 'active',
+    'border-slate-200 bg-white text-slate-400': status === 'inactive'
+  }"
+>
+  <div class="flex items-center justify-center">
+    <app-check-icon
+      *ngIf="status === 'complete'; else showStep"
+      classNames="h-6 w-6 text-white"
+    />
+
+    <ng-template #showStep>
+      <span>{{ step }}</span>
+    </ng-template>
+  </div>
+</div>
