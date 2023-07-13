@@ -31,8 +31,9 @@
         <button
           class="bg flex items-center justify-center rounded-full bg-blue-500 py-1.5 px-3.5 font-medium tracking-tight text-white hover:bg-blue-600 active:bg-blue-700"
           [ngClass]="{
-            'pointer-events-none opacity-50': currentStep > 4
+            'pointer-events-none opacity-50': isCompleted()
           }"
+          [disabled]="isCompleted()"
           (click)="continue()"
         >
           Continue

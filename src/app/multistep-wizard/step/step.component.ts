@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CheckIconComponent } from './check-icon/check-icon.component';
+import { CheckIconComponent } from '../check-icon/check-icon.component';
 
 @Component({
   selector: 'app-step',
@@ -25,12 +25,12 @@ export class StepComponent {
   }
 
   private updateStatus() {
-    if (this.currentStep === this.step) {
-      return (this._status = 'active');
-    } else if (this.currentStep < this.step) {
-      return (this._status = 'inactive');
+    if (this.currentStep > this.step) {
+      this._status = 'complete';
+    } else if (this.currentStep === this.step) {
+      this._status = 'active';
     } else {
-      return (this._status = 'complete');
+      this._status = 'inactive';
     }
   }
 }

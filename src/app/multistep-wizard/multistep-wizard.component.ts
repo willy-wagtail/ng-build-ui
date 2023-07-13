@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StepComponent } from './step/step.component';
 
-type Step = 1 | 2 | 3 | 4;
-
 @Component({
   selector: 'app-multistep-wizard',
   standalone: true,
@@ -12,17 +10,21 @@ type Step = 1 | 2 | 3 | 4;
   styleUrls: ['./multistep-wizard.component.scss'],
 })
 export class MultistepWizardComponent {
-  currentStep: Step = 1;
+  currentStep: number = 1;
 
   continue() {
-    if (this.currentStep <= 4) {
+    if (this.currentStep < 5) {
       this.currentStep++;
     }
   }
 
   back() {
-    if (this.currentStep >= 2) {
+    if (this.currentStep > 1) {
       this.currentStep--;
     }
+  }
+
+  isCompleted() {
+    return this.currentStep > 4;
   }
 }
