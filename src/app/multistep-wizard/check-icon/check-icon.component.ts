@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,6 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./check-icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckIconComponent {
-  @Input() classNames: string = '';
-}
+export class CheckIconComponent {}

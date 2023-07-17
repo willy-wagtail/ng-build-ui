@@ -8,10 +8,7 @@
   [@statusColours]="status"
 >
   <div class="flex items-center justify-center">
-    <app-check-icon
-      *ngIf="status === 'complete'; else showStep"
-      classNames="h-6 w-6 text-white"
-    />
+    <app-check-icon *ngIf="status === 'complete'; else showStep" />
 
     <ng-template #showStep>
       <span>{{ step }}</span>

@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -48,12 +49,12 @@ const statusColoursAnimation = trigger('statusColours', [
 
 const circleGlowAnimation = trigger('circleGlow', [
   state('active', style({ scale: 1 })),
-  state('complete', style({ scale: 1.3 })),
+  state('complete', style({ scale: 1.25 })),
   transition('active => complete', [
-    /** Ease-out-circ @see @link https://easings.net/#easeOutCirc */
+    /** Ease-out-circ, see https://easings.net/#easeOutCirc */
     animate('0.6s 0.2s cubic-bezier(0, 0.55, 0.45, 1)'),
   ]),
-  transition('complete => active', [animate('0.2s')]),
+  transition('complete => active', [animate('0.3s')]),
 ]);
 
 @Component({
@@ -69,6 +70,7 @@ export class StepComponent implements OnChanges, AfterViewInit {
   @Input({ required: true }) step!: number;
   @Input({ required: true }) currentStep!: number;
 
+  /** Animations are disabled on init. */
   @HostBinding('@.disabled') animationsDisabled = true;
 
   status: StepStatus = 'inactive';
@@ -78,7 +80,8 @@ export class StepComponent implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.animationsDisabled = false;
+    /** SetTimeout is needed to avoid ExpressionChangedAfterItHasBeenCheckedError. */
+    setTimeout(() => (this.animationsDisabled = false));
   }
 
   private updateStatus() {

@@ -1,0 +1,19 @@
+path {
+  stroke-dasharray: 20;
+  animation: drawPath 0.5s ease-out;
+}
+
+/** 
+ * Delay to the start without delaying the starting properties of the animation.
+ * See https://css-tricks.com/css-keyframe-animation-delay-iterations/
+ */
+@keyframes drawPath {
+  0%,
+  40% {
+    stroke-dashoffset: 20;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
