@@ -1,0 +1,26 @@
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-800">
+  <div
+    class="w-[75%] h-[75%] group relative max-w-md border border-white/10 shadow-xl rounded-3xl bg-gray-900 px-8 py-16"
+    (mousemove)="onMouseMove($event)"
+  >
+    <div
+      class="pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-20 transition duration-500"
+      #spotlight
+    ></div>
+
+    <div>
+      <h3 class="text-base leading-7 font-semibold text-sky-500">Super</h3>
+
+      <div class="mt-2 text-5xl font-bold tracking-tight text-white">
+        Saiyan
+      </div>
+
+      <p class="text-gray-300 text-base mt-6 tracking-tight">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+  </div>
+</div>
