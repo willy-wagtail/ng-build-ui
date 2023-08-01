@@ -1,0 +1,9 @@
+<div class="relative w-6">
+  <app-number
+    *ngFor="let number of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+    [number]="number"
+    [place]="place"
+    [count]="count"
+    [proportional]="!snapDigits"
+  ></app-number>
+</div>

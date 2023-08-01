@@ -1,0 +1,25 @@
+<div class="min-h-screen flex items-center justify-center">
+  <div class="flex w-1/2 justify-center">
+    <div class>
+      <p>Choose a number:</p>
+      <input type="number" [(ngModel)]="count" min="0" />
+    </div>
+  </div>
+
+  <div class="flex w-1/2 justify-center">
+    <div>
+      <input
+        type="checkbox"
+        id="snapDigits"
+        name="snapDigits"
+        [(ngModel)]="snapDigits"
+      />
+
+      <label class="ml-3" for="snapDigits">Snap digits?</label>
+    </div>
+  </div>
+
+  <div class="flex w-1/2 justify-center">
+    <app-counter [count]="count" [snapDigits]="snapDigits" />
+  </div>
+</div>
